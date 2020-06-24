@@ -2,6 +2,8 @@
 
 import { app, protocol, BrowserWindow } from 'electron'
 import path from 'path'
+import { autoUpdater } from "electron-updater"
+
 import {
   createProtocol,
   /* installVueDevtools */
@@ -42,7 +44,14 @@ function createWindow () {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
+    console.log("=====检测更新开始====")
+    autoUpdater.checkForUpdatesAndNotify().then(result=>{
+      console.log("=====检测更新结果====")
+      console.log(result)
+    })
   }
+
+
 
   win.on('closed', () => {
     win = null

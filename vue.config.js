@@ -9,6 +9,11 @@ module.exports = {
                 "directories":{
                     "output":"./dist_electron"//输出文件路径
                 },
+                publish: [{
+                    "provider": "github",
+                    "owner": "shixw",
+                    "repo": "vue-electron-notes"
+                }],
                 "dmg": {
                     "contents": [
                         {
